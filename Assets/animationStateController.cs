@@ -5,6 +5,7 @@ using UnityEngine;
 public class animationStateController : MonoBehaviour
 {
     Animator animator;
+    public bool selected;
 
     public float hideCooldown;
     float hide;
@@ -12,18 +13,19 @@ public class animationStateController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetBool("isHiding", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("z"))
+        if (Input.GetKey(KeyCode.Z))
         {
             animator.SetBool("isWalking", true);
         }
         else
             animator.SetBool("isWalking", false);
-        if (Input.GetKey("g"))
+        if (Input.GetKey(KeyCode.G))
         {
 
             if (!animator.GetBool("isHiding"))
@@ -47,5 +49,9 @@ public class animationStateController : MonoBehaviour
         }
         else
             animator.SetBool("isAttacking", false);
+        if (!selected)
+            animator.SetBool("isHiding", true);
+        else
+            animator.SetBool("isHiding", false);
     }
 }

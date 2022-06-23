@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - redTurtle
+  - blueTurtle
   layers:
   - Default
   - TransparentFX
