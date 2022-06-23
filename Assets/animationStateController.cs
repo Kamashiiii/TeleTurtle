@@ -41,5 +41,11 @@ public class animationStateController : MonoBehaviour
                 hide = Time.time;
             }
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+            animator.SetBool("isAttacking", false);
     }
 }
