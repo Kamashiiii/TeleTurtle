@@ -19,7 +19,7 @@ public class Hold : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && isHeld)
                 turtleThrow();
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && GetComponent<Rigidbody>().velocity.magnitude<=0)
                 pickup();
         }
     }

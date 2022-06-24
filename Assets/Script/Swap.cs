@@ -38,12 +38,12 @@ public class Swap : MonoBehaviour
                 return;
             else if (selectedTurtle == "rouge" && (!TortueBleu.GetComponent<Hold>().isHeld))
             {
+                TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Bleu)
+                TortueBleu.GetComponent<animationStateController>().enabled = true;
                 TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = false; // Désactive la premiere tortue (Rouge)
                 TortueRouge.GetComponent<animationStateController>().enabled = false;
                 cameraBleu.SetActive(true); // Change la caméra
                 cameraRouge.SetActive(false);
-                TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Bleu)
-                TortueBleu.GetComponent<animationStateController>().enabled = true;
                 selectedTurtle = "bleu";
                 TortueBleu.GetComponent<animationStateController>().selected = true;
                 TortueRouge.GetComponent<animationStateController>().selected = false;
