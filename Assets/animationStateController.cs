@@ -14,12 +14,16 @@ public class animationStateController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.SetBool("isHiding", true);
+        if (selected)
+            animator.SetBool("isHiding", true);
+        else
+            animator.SetBool("isHiding", false);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (!otherTurtle.GetComponent<Hold>().isHeld && Input.GetKey(KeyCode.Z))
             animator.SetBool("isWalking", true);
 
@@ -49,9 +53,9 @@ public class animationStateController : MonoBehaviour
         }
         else
             animator.SetBool("isAttacking", false);
-        if (!selected)
-            animator.SetBool("isHiding", true);
-        else
+        if (selected)
             animator.SetBool("isHiding", false);
+        else
+            animator.SetBool("isHiding", true);
     }
 }
