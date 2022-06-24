@@ -20,7 +20,7 @@ public class Swap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectedTurtle = "rouge";
+        selectedTurtle = "bleu";
         cameraBleu.SetActive(false);
         cameraRouge.SetActive(true);
 
