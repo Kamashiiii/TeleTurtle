@@ -25,8 +25,6 @@ public class Swap : MonoBehaviour
         cameraRouge.SetActive(true);
 
         TortueBleu.GetComponent<Animator>().SetBool("isHiding", true);
-        TortueRouge.GetComponent<animationStateController>().selected = true;
-        TortueBleu.GetComponent<animationStateController>().selected = false;
         TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = false;
         TortueBleu.GetComponent<animationStateController>().enabled = false;
     }
@@ -38,14 +36,13 @@ public class Swap : MonoBehaviour
         {
             if (Time.time - swap < swapCooldown)
                 return;
-            if (selectedTurtle == "rouge" && (!TortueBleu.GetComponent<Hold>().isHeld))
+            else if (selectedTurtle == "rouge" && (!TortueBleu.GetComponent<Hold>().isHeld))
             {
                 TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = false; // Désactive la premiere tortue (Rouge)
                 TortueRouge.GetComponent<animationStateController>().enabled = false;
                 cameraBleu.SetActive(true); // Change la caméra
                 cameraRouge.SetActive(false);
-                TortueBleu.GetComponent<ThirdPersonCharacter>().enabled = true; // Active la deuxieme Tortue (Bleu)
-                TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = true;
+                TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Bleu)
                 TortueBleu.GetComponent<animationStateController>().enabled = true;
                 selectedTurtle = "bleu";
                 TortueBleu.GetComponent<animationStateController>().selected = true;
@@ -59,8 +56,7 @@ public class Swap : MonoBehaviour
                 TortueBleu.GetComponent<animationStateController>().enabled = false;
                 cameraRouge.SetActive(true);
                 cameraBleu.SetActive(false); // Change la caméra
-                TortueRouge.GetComponent<ThirdPersonCharacter>().enabled = true; // Active la deuxieme Tortue (Rouge)
-                TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = true;
+                TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Rouge)
                 TortueRouge.GetComponent<animationStateController>().enabled = true;
                 selectedTurtle = "rouge";
                 TortueRouge.GetComponent<animationStateController>().selected = true;
