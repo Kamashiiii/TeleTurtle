@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Hold : MonoBehaviour
 {
@@ -35,14 +36,18 @@ public class Hold : MonoBehaviour
 
     void pickup()
     {
+        GetComponent<ThirdPersonUserControl>().enabled = false;
+        GetComponent<animationStateController>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Transform>().position = holder.position;
-        GetComponent<Transform>().parent = holder;
+        GetComponent<Transform>().parent = holder.parent;
         isHeld = true;
     }
     void turtleThrow()
     {
         GetComponent<Transform>().parent = null;
+        GetComponent<ThirdPersonUserControl>().enabled = false;
+        GetComponent<animationStateController>().enabled = false;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().AddForce((holder.forward + new Vector3(0, 0.5f, 0)) * throwForce, ForceMode.Impulse);
         isHeld = false;

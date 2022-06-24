@@ -23,10 +23,8 @@ public class animationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!otherTurtle.GetComponent<Hold>().isHeld && Input.GetKey(KeyCode.Z))
             animator.SetBool("isWalking", true);
-
         else
             animator.SetBool("isWalking", false);
         if (Input.GetKey(KeyCode.G))
