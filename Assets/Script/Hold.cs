@@ -9,24 +9,24 @@ public class Hold : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!this.animationStateController.selected)
+        /*if (!this.animationStateController.selected)
         {
             if (Input.GetMouseButtonDown(0))
                 place();
             if (Input.GetMouseButtonDown(0))
                 pickup();
-        }
+        }*/
     }
 
     void pickup()
     {
-        GetComponent<RigidBody>().useGravity = false;
+        GetComponent<Rigidbody>().useGravity = false;
         this.transform.position = holder.position;
-        this.transform.parent = GameObject.Find("Holder");
+        //this.transform.parent = GameObject.Find("Holder");
     }
     void place()
     {
         this.transform.parent = null;
-        GetComponent<RigidBody>().useGravity = true;
+        GetComponent<Rigidbody>().useGravity = true;
     }
 }
