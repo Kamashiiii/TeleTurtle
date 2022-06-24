@@ -5,28 +5,31 @@ using UnityEngine;
 public class Hold : MonoBehaviour
 {
     public Transform holder;
+    public bool isHeld = false;
 
     // Update is called once per frame
     void Update()
     {
-        /*if (!this.animationStateController.selected)
+        if (!GetComponent<animationStateController>().selected)
         {
             if (Input.GetMouseButtonDown(0))
                 place();
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
                 pickup();
-        }*/
+        }
     }
 
     void pickup()
     {
         GetComponent<Rigidbody>().useGravity = false;
-        this.transform.position = holder.position;
-        //this.transform.parent = GameObject.Find("Holder");
+        GetComponent<Transform>().position = holder.position;
+        GetComponent<Transform>().parent = holder;
+        isHeld = true;
     }
     void place()
     {
-        this.transform.parent = null;
+        GetComponent<Transform>().parent = null;
         GetComponent<Rigidbody>().useGravity = true;
+        isHeld = false;
     }
 }
