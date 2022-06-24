@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-
-    public GameObject TortueBleu;
-    public GameObject TortueRouge;
+    public Transform pos;
     public float x;
-    public float x2;
     public float z;
-    public float z2;
+    public float y;
+
 
 
 
@@ -32,9 +30,7 @@ public class Respawn : MonoBehaviour
 
     void respawn()
     {
-        TortueRouge.transform.position = new Vector3((float)x, 0, (float)z);
-        TortueBleu.transform.position = new Vector3((float)x2, 0, (float)z2);
-
+        pos.position = new Vector3((float)x, (float)y, (float)z);
     }
 
 
