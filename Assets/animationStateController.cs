@@ -6,6 +6,7 @@ public class animationStateController : MonoBehaviour
 {
     Animator animator;
     public bool selected;
+    public GameObject otherTurtle;
 
     public float hideCooldown;
     float hide;
@@ -19,9 +20,12 @@ public class animationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (!otherTurtle.GetComponent<Hold>().isHeld)
         {
-            animator.SetBool("isWalking", true);
+            if (Input.GetKey(KeyCode.Z))
+            {
+                animator.SetBool("isWalking", true);
+            }
         }
         else
             animator.SetBool("isWalking", false);
