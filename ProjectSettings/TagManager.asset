@@ -9,6 +9,7 @@ TagManager:
   - blueTurtle
   - Beet
   - Wall
+  - Button
   layers:
   - Default
   - TransparentFX
