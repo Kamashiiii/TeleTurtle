@@ -6,8 +6,8 @@ public class Respawn : MonoBehaviour
 {
     public Transform pos;
     public float x;
-    public float z;
     public float y;
+    public float z;
 
 
 
@@ -30,7 +30,7 @@ public class Respawn : MonoBehaviour
 
     void respawn()
     {
-        pos.position = new Vector3((float)x, (float)y, (float)z);
+        pos.transform.position = new Vector3((float)x, (float)y, (float)z);
     }
 
 
