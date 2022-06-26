@@ -66,5 +66,6 @@ public class Hold : MonoBehaviour
         isHeld = false;
         charge = false;
         throwForce = minForce - 0.1f;
+        barDeCharge.SetActive(false);
     }
 }
