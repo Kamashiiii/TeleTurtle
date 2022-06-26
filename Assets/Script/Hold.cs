@@ -19,7 +19,7 @@ public class Hold : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && isHeld)
                 turtleThrow();
-            if (Input.GetMouseButtonDown(1) && GetComponent<Rigidbody>().velocity.magnitude<=0)
+            if (Input.GetMouseButtonDown(1))
                 pickup();
         }
     }
@@ -36,6 +36,7 @@ public class Hold : MonoBehaviour
 
     void pickup()
     {
+        GetComponent<ThirdPersonCharacter>().m_IsGrounded = false;
         GetComponent<ThirdPersonUserControl>().enabled = false;
         GetComponent<animationStateController>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;

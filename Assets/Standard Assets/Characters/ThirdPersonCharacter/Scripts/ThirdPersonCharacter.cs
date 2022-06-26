@@ -15,9 +15,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
         [SerializeField] float m_GroundCheckDistance = 0.1f;
 
+        public bool isSelected;
+
         Rigidbody m_Rigidbody;
         Animator m_Animator;
-        bool m_IsGrounded;
+        public bool m_IsGrounded;
         float m_OrigGroundCheckDistance;
         const float k_Half = 0.5f;
         float m_TurnAmount;
@@ -50,7 +52,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // direction.
             if (move.magnitude > 1f) move.Normalize();
             move = transform.InverseTransformDirection(move);
-            CheckGroundStatus();
+            if (isSelected)
+                CheckGroundStatus();
             move = Vector3.ProjectOnPlane(move, m_GroundNormal);
             m_TurnAmount = Mathf.Atan2(move.x, move.z);
             m_ForwardAmount = move.z;
@@ -82,16 +85,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        void HandleAirborneMovement()
-        {
-            // apply extra gravity from multiplier:
-            Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
-            m_Rigidbody.AddForce(extraGravityForce);
-
-            m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
-        }
-
-
         void ApplyExtraTurnRotation()
         {
             // help the character turn faster (this is in addition to root rotation in the animation)
@@ -119,8 +112,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             RaycastHit hitInfo;
 #if UNITY_EDITOR
-			// helper to visualise the ground check ray in the scene view
-			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
+            // helper to visualise the ground check ray in the scene view
+            Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
 #endif
             // 0.1f is a small offset to start the ray from inside the character
             // it is also good to note that the transform position in the sample assets is at the base of the character

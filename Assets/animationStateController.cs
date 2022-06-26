@@ -35,6 +35,7 @@ public class animationStateController : MonoBehaviour
                 if (Time.time - hide < hideCooldown)
                     return;
                 animator.SetBool("isHiding", true);
+                GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 hide = Time.time;
             }
             else
