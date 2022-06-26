@@ -14,13 +14,15 @@ public class Hold : MonoBehaviour
     public float chargeSpeed;
     float throwForce;
     public Slider slider;
+    public GameObject barDeCharge;
 
     void Start()
     {
         charge = false;
         throwForce = minForce - 0.1f;
         slider.maxValue = maxForce;
-        slider.minValue = throwForce = minForce - 0.1f; ;
+        slider.minValue = throwForce = minForce - 0.1f;
+        barDeCharge.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class Hold : MonoBehaviour
 
     void pickup()
     {
+        barDeCharge.SetActive(true);
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         GetComponent<ThirdPersonCharacter>().m_IsGrounded = false;
         GetComponent<ThirdPersonUserControl>().enabled = false;
