@@ -24,6 +24,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
+
     void respawn()
     {
         pos.transform.position = spawnPos;
