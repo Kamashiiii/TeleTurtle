@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class translation : MonoBehaviour
 {
-    public gameObject tortue
-    public Transform transform;
+    public GameObject tortue;
+    public new Transform transform;
     Vector3 startPos;
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,10 @@ public class translation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Sin(Time.time/3)*10, startPos.y, startPos.z);
-      /*  if (tortue )
-        {
-            transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
-       }*/ 
-    }
-
-    void tempsAttente()
-    {
+        transform.position = new Vector3(Mathf.Sin(Time.time / 3) * 10, startPos.y, startPos.z);
+        /*  if (tortue )
+          {
+              transform.position = new Vector3(startPos.x, startPos.y, startPos.z);
+         }*/
     }
 }
