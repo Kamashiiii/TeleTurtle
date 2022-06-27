@@ -42,6 +42,7 @@ public class LaPause : MonoBehaviour
     }
     public void QuitGame()
     {
+        Debug.Log("testets");
         Application.Quit();
     }
 }
