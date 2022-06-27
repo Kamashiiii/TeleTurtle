@@ -5,18 +5,14 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     public Transform pos;
-    public float x;
-    public float y;
-    public float z;
-
-
+    Vector3 spawnPos;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        spawnPos = pos.position;
+            }
 
     void OnCollisionEnter(Collision other)
     {
@@ -30,14 +26,6 @@ public class Respawn : MonoBehaviour
 
     void respawn()
     {
-        pos.transform.position = new Vector3((float)x, (float)y, (float)z);
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        pos.transform.position = spawnPos;
     }
 }
