@@ -10,6 +10,7 @@ TagManager:
   - Beet
   - Wall
   - Button
+  - translation
   layers:
   - Default
   - TransparentFX
