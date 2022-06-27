@@ -11,6 +11,8 @@ public class translation : MonoBehaviour
     Vector3 pos;
     public bool left = true;
     public bool right = false;
+    public bool contact = false;
+    GameObject turtle;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,39 @@ public class translation : MonoBehaviour
         }
         else
             right = true;
+        if (contact)
+            MoveAlong(turtle);
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Turtle":
+                contact = true;
+                turtle = other.gameObject;
+                break;
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Turtle":
+                contact = false;
+                break;
+        }
+    }
+
+    void MoveAlong(GameObject turtle)
+    {
+        if (right)
+        {
+            turtle.transform.position += new Vector3(0.01f, 0f, 0f);
+        }
+        if (left)
+        {
+            turtle.transform.position -= new Vector3(0.01f, 0f, 0f);
+        }
 
     }
 }
