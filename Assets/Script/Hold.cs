@@ -30,7 +30,7 @@ public class Hold : MonoBehaviour
     {
         if (!GetComponent<animationStateController>().selected)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && holder.parent.GetComponent<ThirdPersonCharacter>().m_IsGrounded)
                 pickup();
             if (Input.GetMouseButtonDown(0) && isHeld)
                 charge = true;
