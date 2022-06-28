@@ -36,10 +36,13 @@ public class LaPause : MonoBehaviour
         MenuPauseUI.SetActive(true);
         Time.timeScale = 0f;
         JeuEnPause = true;
+        Cursor.visible = true;
     }
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+        JeuEnPause = false;
+        Time.timeScale = 1f;
     }
     public void QuitGame()
     {
