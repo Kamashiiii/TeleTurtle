@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    
+    public AudioSource nextLevelSource;
+
+    [SerializeField] AudioClip nextLevel;
 
 
     void Start()
     {
-        
+        nextLevelSource = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision other)
@@ -19,6 +21,8 @@ public class NextLevel : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Turtle":
+                nextLevelSource.clip = nextLevel;
+                nextLevelSource.Play();
                 LoadLevel();
                 break;
         }
