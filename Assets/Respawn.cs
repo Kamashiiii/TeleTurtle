@@ -16,8 +16,7 @@ public class Respawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 positionInitiale = new Vector3(0, 0, -120);
-        pos.position = positionInitiale;
+      
         spawnPos = pos.position;
     }
 
