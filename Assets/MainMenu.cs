@@ -13,6 +13,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+    public void Souris()
+    {
+        Cursor.visible = false;
+    }
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);

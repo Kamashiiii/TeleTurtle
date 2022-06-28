@@ -29,6 +29,7 @@ public class LaPause : MonoBehaviour
         MenuPauseUI.SetActive(false);
         Time.timeScale = 1f;
         JeuEnPause = false;
+        Cursor.visible = false;
     }
     public void Pause()
     {
