@@ -7,14 +7,12 @@ using UnityEngine.Audio;
 public class Sonsslider : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    
 
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume);
     }
-    public void SetVolumebg(float volume)
-    {
-        audioMixer.SetFloat("Volumebg", volume);
-    }
+    
 }
 

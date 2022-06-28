@@ -1158,7 +1158,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -16.263306, y: -97.10245}
-  m_SizeDelta: {x: 300, y: 30}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489887772
 MonoBehaviour:
@@ -1678,6 +1678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882800546}
   - component: {fileID: 882800547}
+  - component: {fileID: 882800548}
   m_Layer: 0
   m_Name: MenuOptions
   m_TagString: Untagged
@@ -1718,6 +1719,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 1b3d0fac68ca1394486407bb3b043845, type: 2}
+--- !u!114 &882800548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882800545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052afb40f0218354599f86836fc88b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 9b2566981a402e34c861db19207ed7f7, type: 2}
 --- !u!1 &890411443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,7 +2295,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 882800547}
+      - m_Target: {fileID: 882800548}
         m_MethodName: SetVolumebg
         m_Mode: 0
         m_Arguments:
