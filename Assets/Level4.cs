@@ -7,7 +7,7 @@ public class Level4 : MonoBehaviour
 {
     public void Jouer4()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(7);
     }
 
     public void QuitGame()

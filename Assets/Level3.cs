@@ -7,7 +7,7 @@ public class Level3 : MonoBehaviour
 {
     public void Jouer3()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
 
     public void QuitGame()
