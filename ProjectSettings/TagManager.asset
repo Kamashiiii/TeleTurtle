@@ -8,6 +8,10 @@ TagManager:
   - blueTurtle
   - Turtle
   - Fire
+  - Wall
+  - Beet
+  - Button
+  - musique
   layers:
   - Default
   - TransparentFX

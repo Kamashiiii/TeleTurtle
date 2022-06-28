@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public void Jouer()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Cursor.visible = false;
     }
     public void Retry()
     {

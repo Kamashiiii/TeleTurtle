@@ -31,6 +31,7 @@ public class NextLevel : MonoBehaviour
     void LoadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
