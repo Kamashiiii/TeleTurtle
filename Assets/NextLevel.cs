@@ -18,7 +18,7 @@ public class NextLevel : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "Beet":
+            case "Turtle":
                 LoadLevel();
                 break;
         }
@@ -26,9 +26,7 @@ public class NextLevel : MonoBehaviour
 
     void LoadLevel()
     {
-        //SceneManager.LoadScene(LevelToLoad);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 
     // Update is called once per frame
