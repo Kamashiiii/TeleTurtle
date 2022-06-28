@@ -11,11 +11,14 @@ public class Swap : MonoBehaviour
     public GameObject cameraBleu;
     public GameObject cameraRouge;
 
+
     public float swapCooldown;
     float swap;
 
     string selectedTurtle;
 
+    public AudioSource sourceAudio;
+    [SerializeField] AudioClip teleportation;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class Swap : MonoBehaviour
         TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = false;
         TortueBleu.GetComponent<animationStateController>().enabled = false;
         TortueRouge.GetComponent<ThirdPersonCharacter>().isSelected = true;
+
+        sourceAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +44,8 @@ public class Swap : MonoBehaviour
                 return;
             else if (selectedTurtle == "rouge" && (!TortueBleu.GetComponent<Hold>().isHeld))
             {
+                sourceAudio.clip = teleportation;
+                sourceAudio.Play();
                 TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Bleu)
                 TortueBleu.GetComponent<animationStateController>().enabled = true;
                 TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = false; // Désactive la premiere tortue (Rouge)
@@ -56,6 +63,8 @@ public class Swap : MonoBehaviour
             }
             else if (selectedTurtle == "bleu" && (!TortueRouge.GetComponent<Hold>().isHeld))
             {
+                sourceAudio.clip = teleportation;
+                sourceAudio.Play();
                 TortueRouge.GetComponent<ThirdPersonUserControl>().enabled = true; // Active la deuxieme Tortue (Rouge)
                 TortueRouge.GetComponent<animationStateController>().enabled = true;
                 TortueBleu.GetComponent<ThirdPersonUserControl>().enabled = false; // Désactive la premiere tortue (Bleu)

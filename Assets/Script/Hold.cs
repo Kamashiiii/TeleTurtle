@@ -15,6 +15,10 @@ public class Hold : MonoBehaviour
     float throwForce;
     public Slider slider;
     public GameObject barDeCharge;
+    public AudioSource sourceAudio;
+
+    [SerializeField] AudioClip lancer;
+    [SerializeField] AudioClip chargement;
 
     void Start()
     {
@@ -23,6 +27,7 @@ public class Hold : MonoBehaviour
         slider.maxValue = maxForce;
         slider.minValue = throwForce = minForce - 0.1f;
         barDeCharge.SetActive(false);
+        sourceAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,13 +38,21 @@ public class Hold : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && holder.parent.GetComponent<ThirdPersonCharacter>().m_IsGrounded)
                 pickup();
             if (Input.GetMouseButtonDown(0) && isHeld)
+            {
                 charge = true;
+                sourceAudio.clip = chargement;
+                sourceAudio.Play();
+            }
             if (Input.GetMouseButtonUp(0))
                 charge = false;
             if (charge && throwForce <= maxForce)
                 throwForce += chargeSpeed;
             if (!charge && throwForce >= minForce && isHeld)
+            {
                 turtleThrow();
+                sourceAudio.clip = lancer;
+                sourceAudio.Play();
+            }
             slider.value = throwForce;
         }
     }
