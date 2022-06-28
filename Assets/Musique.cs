@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Musique : MonoBehaviour
 {
-    Object.DontDestroyOnLoad
-
     public AudioSource sourceAudio;
 
     [SerializeField] AudioClip musiqueDeFond;
