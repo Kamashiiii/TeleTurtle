@@ -12,4 +12,9 @@ public class Sonsslider : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", volume);
     }
+    public void SetVolumebg(float volume)
+    {
+        audioMixer.SetFloat("Volumebg", volume);
+    }
 }
+
