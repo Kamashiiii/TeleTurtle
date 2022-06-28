@@ -36,11 +36,7 @@ public class Respawn : MonoBehaviour
                 break;
         }
     }
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
     void respawn()
     {
         pos.transform.position = spawnPos;
