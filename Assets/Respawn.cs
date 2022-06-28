@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Respawn : MonoBehaviour
 {
+    public GameObject tortue;
     public Transform pos;
+    public GameObject porte;
     Vector3 spawnPos;
+    Vector3 positionInitiale;
+    bool mouvement;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 positionInitiale = new Vector3(0, 0, -120);
+        pos.position = positionInitiale;
         spawnPos = pos.position;
-            }
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -21,10 +28,19 @@ public class Respawn : MonoBehaviour
             case "Wall":
                 respawn();
                 break;
+            case "Button":
+                porte.transform.position = new Vector3(0, -50, 0);
+                break;
+            case "Feu":
+                tortue.transform.position = new Vector3(5, 0, -40);
+                break;
         }
     }
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
     void respawn()
     {
         pos.transform.position = spawnPos;

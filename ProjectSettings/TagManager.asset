@@ -10,7 +10,12 @@ TagManager:
   - Beet
   - Wall
   - Button
+<<<<<<< Updated upstream
   - Turtle
+=======
+  - translation
+  - Feu
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
